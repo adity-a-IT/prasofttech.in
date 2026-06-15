@@ -112,12 +112,34 @@ if (canvas) {
   animateParticles();
 }
 
-// ── Contact form handler ──
+// ── Contact form handler (sends via Email + WhatsApp) ──
 const contactForm = document.getElementById('contactForm');
 if (contactForm) {
   contactForm.addEventListener('submit', (e) => {
     e.preventDefault();
     const btn = contactForm.querySelector('.btn-submit');
+    
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const service = document.getElementById('service').value || 'Not specified';
+    const message = document.getElementById('message').value;
+
+    // Send via email
+    const subject = encodeURIComponent(`New Inquiry from ${name} - ${service}`);
+    const body = encodeURIComponent(
+      `Name: ${name}\nEmail: ${email}\nService: ${service}\n\nMessage:\n${message}`
+    );
+    window.open(`mailto:prasofttechnology@gmail.com?subject=${subject}&body=${body}`, '_blank');
+
+    // Also send via WhatsApp
+    const whatsappMsg = encodeURIComponent(
+      `🔔 *New Website Inquiry*\n\n👤 *Name:* ${name}\n📧 *Email:* ${email}\n🛠 *Service:* ${service}\n\n💬 *Message:*\n${message}`
+    );
+    setTimeout(() => {
+      window.open(`https://wa.me/919506143777?text=${whatsappMsg}`, '_blank');
+    }, 1000);
+
+    // Show success
     btn.innerHTML = '✓ Message Sent!';
     btn.style.background = 'linear-gradient(135deg, #10b981, #059669)';
     setTimeout(() => {
