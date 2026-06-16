@@ -112,41 +112,45 @@ if (canvas) {
   animateParticles();
 }
 
-// ── Contact form handler (sends via Email + WhatsApp) ──
+// ── Contact form handler (Web3Forms) ──
 const contactForm = document.getElementById('contactForm');
+
 if (contactForm) {
-  contactForm.addEventListener('submit', (e) => {
+  contactForm.addEventListener('submit', async (e) => {
     e.preventDefault();
+
     const btn = contactForm.querySelector('.btn-submit');
-    
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const service = document.getElementById('service').value || 'Not specified';
-    const message = document.getElementById('message').value;
+    const originalText = btn.innerHTML;
 
-    // Send via email
-    const subject = encodeURIComponent(`New Inquiry from ${name} - ${service}`);
-    const body = encodeURIComponent(
-      `Name: ${name}\nEmail: ${email}\nService: ${service}\n\nMessage:\n${message}`
-    );
-    window.open(`mailto:prasofttechnology@gmail.com?subject=${subject}&body=${body}`, '_blank');
+    btn.innerHTML = 'Sending...';
+    btn.disabled = true;
 
-    // Also send via WhatsApp
-    const whatsappMsg = encodeURIComponent(
-      `🔔 *New Website Inquiry*\n\n👤 *Name:* ${name}\n📧 *Email:* ${email}\n🛠 *Service:* ${service}\n\n💬 *Message:*\n${message}`
-    );
-    setTimeout(() => {
-      window.open(`https://wa.me/919506143777?text=${whatsappMsg}`, '_blank');
-    }, 1000);
+    const formData = new FormData(contactForm);
 
-    // Show success
-    btn.innerHTML = '✓ Message Sent!';
-    btn.style.background = 'linear-gradient(135deg, #10b981, #059669)';
-    setTimeout(() => {
-      btn.innerHTML = 'Send Message →';
-      btn.style.background = '';
-      contactForm.reset();
-    }, 3000);
+    try {
+      const response = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        body: formData
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        btn.innerHTML = '✓ Message Sent!';
+        contactForm.reset();
+
+        setTimeout(() => {
+          btn.innerHTML = originalText;
+          btn.disabled = false;
+        }, 3000);
+      } else {
+        throw new Error(result.message);
+      }
+    } catch (error) {
+      btn.innerHTML = originalText;
+      btn.disabled = false;
+      alert('Failed to send message. Please try again.');
+    }
   });
 }
 
