@@ -272,3 +272,38 @@ img { max-width: 100%; display: block; }
   .footer-bottom { flex-direction: column; gap: 16px; text-align: center; }
   .hero-stats { flex-direction: column; gap: 16px; }
 }
+
+.help-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:25px;
+}
+
+.help-card{
+  background:#ffffff;
+  border:1px solid #e2e8f0;
+  border-radius:16px;
+  padding:30px;
+  transition:0.3s;
+}
+
+.help-card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 10px 30px rgba(0,0,0,0.08);
+}
+
+.help-card h3{
+  color:#0f172a;
+  margin-bottom:12px;
+}
+
+.help-card p{
+  color:#475569;
+  line-height:1.7;
+}
+
+@media(max-width:768px){
+  .help-grid{
+    grid-template-columns:1fr;
+  }
+}
