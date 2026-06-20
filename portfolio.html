@@ -65,7 +65,25 @@
 document.querySelectorAll('.coming-soon-btn').forEach(btn => {
   btn.addEventListener('click', function(e) {
     e.preventDefault();
-    alert('🚀 Projects & Case Studies Coming Soon!');
+
+    const popup = document.createElement('div');
+
+    popup.innerHTML = `
+      <div class="coming-soon-popup">
+        <div class="popup-icon">🚀</div>
+        <h3>Coming Soon</h3>
+        <p>
+          Projects, case studies, and client success stories
+          will be available here soon.
+        </p>
+      </div>
+    `;
+
+    document.body.appendChild(popup);
+
+    setTimeout(() => {
+      popup.remove();
+    }, 3500);
   });
 });
 </script>
