@@ -28,9 +28,9 @@
       Food delivery apps, restaurant ordering systems,
       QR menus and customer engagement platforms.
     </p>
-    <a href="#" class="portfolio-btn">
-      View Projects →
-    </a>
+    <a href="#" class="portfolio-btn coming-soon-btn">
+  View Projects →
+</a>
   </div>
 
   <div class="portfolio-card">
@@ -40,9 +40,9 @@
       Business management platforms,
       CRM systems and enterprise solutions.
     </p>
-    <a href="#" class="portfolio-btn">
-      View Projects →
-    </a>
+        <a href="#" class="portfolio-btn coming-soon-btn">
+  View Projects →
+</a>
   </div>
 
   <div class="portfolio-card">
@@ -52,15 +52,22 @@
       AI assistants, healthcare applications,
       automation and intelligent solutions.
     </p>
-    <a href="#" class="portfolio-btn">
-      View Projects →
-    </a>
+    <a href="#" class="portfolio-btn coming-soon-btn">
+  View Projects →
+</a>
   </div>
 
 </div>
 
   </div>
 </section>
-
+<script>
+document.querySelectorAll('.coming-soon-btn').forEach(btn => {
+  btn.addEventListener('click', function(e) {
+    e.preventDefault();
+    alert('🚀 Projects & Case Studies Coming Soon!');
+  });
+});
+</script>
 </body>
 </html>
