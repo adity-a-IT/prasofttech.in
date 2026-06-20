@@ -307,3 +307,52 @@ img { max-width: 100%; display: block; }
     grid-template-columns:1fr;
   }
 }
+
+/* PORTFOLIO PAGE */
+
+.portfolio-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+  gap:30px;
+  margin-top:50px;
+}
+
+.portfolio-card{
+  background:#ffffff;
+  border:1px solid #e2e8f0;
+  border-radius:20px;
+  padding:35px;
+  transition:all .3s ease;
+  box-shadow:0 5px 20px rgba(0,0,0,.05);
+}
+
+.portfolio-card:hover{
+  transform:translateY(-10px);
+  box-shadow:0 15px 35px rgba(37,99,235,.15);
+}
+
+.portfolio-icon{
+  font-size:3rem;
+  margin-bottom:15px;
+}
+
+.portfolio-card h3{
+  color:#0f172a;
+  margin-bottom:15px;
+}
+
+.portfolio-card p{
+  color:#475569;
+  line-height:1.7;
+  margin-bottom:20px;
+}
+
+.portfolio-btn{
+  display:inline-block;
+  padding:12px 24px;
+  border-radius:10px;
+  background:linear-gradient(135deg,#2563eb,#38bdf8);
+  color:white;
+  text-decoration:none;
+  font-weight:600;
+}
