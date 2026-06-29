@@ -4,18 +4,32 @@ window.addEventListener('scroll', () => {
   navbar.classList.toggle('scrolled', window.scrollY > 50);
 });
 
-// ── Mobile menu toggle ──
-const mobileToggle = document.getElementById('mobileToggle');
-const navLinks = document.getElementById('navLinks');
-mobileToggle.addEventListener('click', () => {
-  navLinks.classList.toggle('open');
-  mobileToggle.innerHTML = navLinks.classList.contains('open') ? '✕' : '☰';
-});
-navLinks.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => {
-    navLinks.classList.remove('open');
-    mobileToggle.innerHTML = '☰';
-  });
+// ── Mobile Sidebar ──
+const mobileToggle = document.getElementById("mobileToggle");
+const mobileSidebar = document.getElementById("mobileSidebar");
+const menuOverlay = document.getElementById("menuOverlay");
+const closeMenu = document.getElementById("closeMenu");
+
+function openSidebar() {
+  mobileSidebar.classList.add("active");
+  menuOverlay.classList.add("active");
+  document.body.style.overflow = "hidden";
+}
+
+function closeSidebar() {
+  mobileSidebar.classList.remove("active");
+  menuOverlay.classList.remove("active");
+  document.body.style.overflow = "";
+}
+
+mobileToggle.addEventListener("click", openSidebar);
+
+closeMenu.addEventListener("click", closeSidebar);
+
+menuOverlay.addEventListener("click", closeSidebar);
+
+document.querySelectorAll(".sidebar-links a").forEach(link => {
+  link.addEventListener("click", closeSidebar);
 });
 
 // ── Scroll reveal ──
