@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+
 <nav class="navbar">
   <div class="container">
     <a href="index.html" class="nav-brand">
@@ -15,59 +16,78 @@
     </a>
   </div>
 </nav>
+
 <section class="section">
   <div class="container">
 
     <div class="section-header">
       <span class="section-label">Portfolio</span>
-      <h1 class="section-title">Transforming Ideas Into Industry-Specific Digital Solutions</h1>
+
+      <h1 class="section-title">
+        Transforming Ideas Into Industry-Specific Digital Solutions
+      </h1>
+
       <p class="section-subtitle">
-        Discover how we help businesses across different industries grow, automate operations, and deliver better customer experiences through technology.
+        Discover how we help businesses across different industries grow,
+        automate operations, and deliver better customer experiences through technology.
       </p>
     </div>
 
     <div class="portfolio-grid">
 
-  <div class="portfolio-card">
-    <div class="portfolio-icon">🍔</div>
-    <h3>Food & Restaurant</h3>
-    <p>
-      Food delivery apps, restaurant ordering systems,
-      QR menus and customer engagement platforms.
-    </p>
-    <a href="#" class="portfolio-btn coming-soon-btn">
-  View Projects →
-</a>
-  </div>
+      <!-- Food & Restaurant -->
+      <div class="portfolio-card">
+        <div class="portfolio-icon">🍔</div>
 
-  <div class="portfolio-card">
-    <div class="portfolio-icon">🏢</div>
-    <h3>Enterprise & Business</h3>
-    <p>
-      Business management platforms,
-      CRM systems and enterprise solutions.
-    </p>
-        <a href="https://ultimateesolution.vercel.app/" >
-  View Projects →
-</a>
-  </div>
+        <h3>Food & Restaurant</h3>
 
-  <div class="portfolio-card">
-    <div class="portfolio-icon">🤖</div>
-    <h3>AI & Healthcare</h3>
-    <p>
-      AI assistants, healthcare applications,
-      automation and intelligent solutions.
-    </p>
-    <a href="#" class="portfolio-btn coming-soon-btn">
-  View Projects →
-</a>
-  </div>
+        <p>
+          Food delivery apps, restaurant ordering systems,
+          QR menus and customer engagement platforms.
+        </p>
 
-</div>
+        <a href="#" class="portfolio-btn coming-soon-btn">
+          View Projects →
+        </a>
+      </div>
+
+      <!-- Enterprise & Business -->
+      <div class="portfolio-card">
+        <div class="portfolio-icon">🏢</div>
+
+        <h3>Enterprise & Business</h3>
+
+        <p>
+          Business management platforms,
+          CRM systems and enterprise solutions.
+        </p>
+
+        <a href="enterprise.html" class="portfolio-btn">
+          View Projects →
+        </a>
+      </div>
+
+      <!-- AI & Healthcare -->
+      <div class="portfolio-card">
+        <div class="portfolio-icon">🤖</div>
+
+        <h3>AI & Healthcare</h3>
+
+        <p>
+          AI assistants, healthcare applications,
+          automation and intelligent solutions.
+        </p>
+
+        <a href="#" class="portfolio-btn coming-soon-btn">
+          View Projects →
+        </a>
+      </div>
+
+    </div>
 
   </div>
 </section>
+
 <script>
 document.querySelectorAll('.coming-soon-btn').forEach(btn => {
   btn.addEventListener('click', function(e) {
@@ -94,5 +114,6 @@ document.querySelectorAll('.coming-soon-btn').forEach(btn => {
   });
 });
 </script>
+
 </body>
 </html>
